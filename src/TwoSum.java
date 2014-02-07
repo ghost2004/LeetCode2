@@ -26,7 +26,7 @@ public class TwoSum {
             return this.val - n.val;
         }
     }
-    public int[] twoSum(int[] numbers, int target) {
+    public int[] twoSumV1(int[] numbers, int target) {
 
         ArrayNode[] map = new ArrayNode[numbers.length];
         int idx = 0;
@@ -66,6 +66,35 @@ public class TwoSum {
         return out;
         
     }
+    public int[] twoSum(int[] numbers, int target) {
+
+        ArrayNode[] map = new ArrayNode[numbers.length];
+
+        for (int i = 0; i < numbers.length; i++) {
+            map[i] = new ArrayNode(i+1, numbers[i]);
+        }
+        Arrays.sort(map);
+        
+        int[] out = new int[2];
+        
+        int lo = 0;
+        int hi = numbers.length - 1;
+        
+        while (lo < hi) {
+            int sum = map[lo].val + map[hi].val;
+            if (sum == target) {
+                out[0] = Math.min(map[lo].idx, map[hi].idx);
+                out[1] = Math.max(map[lo].idx, map[hi].idx);
+                break;
+            } else if (sum < target) {
+                lo++;
+            } else {
+                hi--;
+            }
+        }
+        return out;
+    }
+    
     public static void printArray(int[] a) {
         System.out.println(a[0]+" "+a[1]);
     }
