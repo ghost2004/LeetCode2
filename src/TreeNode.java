@@ -33,8 +33,21 @@ public class TreeNode {
             buf.append("#,");
         } else {
             buf.append(node.val+",");
+            /*
+            buf.append(node.val+"(left: ");
+            if (node.left!= null)
+                buf.append(node.left.val);
+            else
+                buf.append("#");
+            buf.append("  right:");
+            if (node.right!= null)
+                buf.append(node.right.val);
+            else
+                buf.append("#");
+            buf.append(")");
             printNode(node.left, buf);
             printNode(node.right, buf);
+            */
         }
     }
     
@@ -75,8 +88,7 @@ public class TreeNode {
             node.right = getFromArray();
         } 
         
-        return node;
-        
+        return node;        
     }
     
     public static TreeNode deserialize(String input) {
@@ -92,6 +104,8 @@ public class TreeNode {
     
     public static void main(String args[]) {
         TreeNode t = TreeNode.deserialize("1,2,3,#,#,4,#,#,5");
+        System.out.println(t.serialize());
+        t = TreeNode.deserialize("30,20,10,#,#,25,24,23,#,#,#,27,#,#,40,35,31,#,#,37,#,#,55");
         System.out.println(t.serialize());
         
     }
