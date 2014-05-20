@@ -72,6 +72,36 @@ public class AlgorithmSorting {
     }
     
     
+    public static int partition(int data[], int lo, int hi) {
+        
+        int p1 = lo;
+        int p2 = hi;
+        
+        int key = data[lo];
+        
+        while (p1 < p2) {
+
+        }
+        
+        return p2;
+        
+    }
+    
+    public static void qSort(int data[], int lo, int hi) {
+        if (hi <= lo )
+            return;
+        
+        int idx = partition(data, lo, hi);
+        qSort(data, lo, idx-1);
+        qSort(data, idx+1, hi);
+        
+        
+    }
+    public static void quickSort(int data[]) {
+        qSort(data, 0, data.length-1);
+    }
+    
+    
     public static void prtArray(int data[]) {
         StringBuilder b = new StringBuilder();
         for (int i = 0; i < data.length; i ++) {
