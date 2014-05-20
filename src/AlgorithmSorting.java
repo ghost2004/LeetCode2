@@ -35,6 +35,41 @@ public class AlgorithmSorting {
         }
     }
     
+    public static void merge(int data[], int aux[], int lo,int mid, int hi) {
+        for (int i = lo; i <= hi; i++)
+            aux[i] = data[i];
+        
+        int idx1 = lo;
+        int idx2 = mid+1;
+        
+        for (int i = lo; i <= hi; i++) {
+            if (idx1 > mid) 
+                data[i] = aux[idx2++];
+            else if (idx2 > hi)
+                data[i] = aux[idx1++];
+            else if (aux[idx1] < aux[idx2])
+                data[i] = aux[idx1++];
+            else
+                data[i] = aux[idx2++];
+        }
+    }
+    
+    public static void mSort(int data[], int aux[],int lo, int hi ) {
+        if (hi <= lo)
+            return;
+        int mid = (hi + lo)/2;
+        
+        mSort(data, aux, lo, mid);
+        mSort(data, aux, mid+1, hi);
+        merge(data, aux, lo, mid, hi);
+        
+    }
+    
+    public static void mergeSort(int data[]) {
+        int aux[] = new int[data.length];
+        mSort(data, aux, 0, data.length-1);
+        
+    }
     
     
     public static void prtArray(int data[]) {
@@ -65,7 +100,7 @@ public class AlgorithmSorting {
                 {7,5,6,3,2,8,0,9,4,1}};
         
         for (int i = 0; i < b1.length; i++) {
-            selectSort(b1[i]);
+            mergeSort(b1[i]);
             prtArray(b1[i]);
         }
 
