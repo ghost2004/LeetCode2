@@ -73,16 +73,38 @@ public class AlgorithmSorting {
     
     
     public static int partition(int data[], int lo, int hi) {
-        
+        //System.out.print("Before: lo="+lo+" hi="+hi+"--");
+        //prtArray(data);
         int p1 = lo;
-        int p2 = hi;
+        int p2 = hi+1;
         
         int key = data[lo];
         
         while (p1 < p2) {
+            
+            while (data[++p1] < key){
+                if (p1 >= hi) break;
+            }
+
+            while (data[--p2] > key)
+                if (p2 <= lo) break;
+            
+                      
+            if (p1 < p2) {
+                int tmp = data[p1];
+                data[p1] = data[p2];
+                data[p2] = tmp;
+            }
+                
+            //System.out.println("p1: "+p1+" p2: " +p2);
 
         }
+        //System.out.println("Out of loop p1: "+p1+" p2: " +p2);
+        data[lo] = data[p2];
+        data[p2] = key;
         
+        //System.out.print("Key = "+key+" idx = "+p2+"--- ");
+        //prtArray(data);
         return p2;
         
     }
@@ -124,13 +146,13 @@ public class AlgorithmSorting {
         insertSort(a3);
         prtArray(a3);
         
-        int b1[][] = { {0,1,2,3,4,5,6,7,8,9},
-                {9,8,7,6,5,4,3,2,1,0},
+        int b1[][] = { //{0,1,2,3,4,5,6,7,8,9},
+                //{9,8,7,6,5,4,3,2,1,0},
                 {5,6,7,1,2,3,4,0,9,4},
                 {7,5,6,3,2,8,0,9,4,1}};
         
         for (int i = 0; i < b1.length; i++) {
-            mergeSort(b1[i]);
+            quickSort(b1[i]);
             prtArray(b1[i]);
         }
 
