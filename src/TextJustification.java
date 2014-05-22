@@ -126,8 +126,8 @@ public class TextJustification {
         String t3[]={"a","b","c","d","e"};
         
         text.printOut(t1, 16);
-        //text.printOut(t2, 12);
-        //text.printOut(t3, 3);
+        text.printOut(t2, 12);
+        text.printOut(t3, 3);
         
     }
 
