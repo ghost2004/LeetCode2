@@ -35,9 +35,11 @@ public class LongSubStrWOR {
     
     public static void main(String[] args) {
         LongSubStrWOR c = new LongSubStrWOR();
-        String[] t1 = {"", "abcabcbb", "bbbb", "dada"};
-        String[] t = {"wlrbbmqbhcdarzowkkyhiddqscdxrjmowfrxsjybldbefsarcbynecdyggxxpklorellnmpapqfwkhopkmco"};
-        String[] t3 = {"hnwnkuewhsqmgbbuqcljjivswmdkqtbxixmvtrrbljptnsnfwzqfjmafadrrwsofsbcnuvqhffbsaqxwpqcac"};
+
+        String[] t = {"", "abcabcbb", "bbbb", "dada",
+                "wlrbbmqbhcdarzowkkyhiddqscdxrjmowfrxsjybldbefsarcbynecdyggxxpklorellnmpapqfwkhopkmco",
+                "hnwnkuewhsqmgbbuqcljjivswmdkqtbxixmvtrrbljptnsnfwzqfjmafadrrwsofsbcnuvqhffbsaqxwpqcac"};
+
         for (int i = 0; i < t.length; i++) {
             System.out.println(t[i]+" length:" + c.lengthOfLongestSubstring(t[i]));
         }
