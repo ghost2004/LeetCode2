@@ -9,6 +9,7 @@ For example,
  */
 import java.util.*;
 public class Permutations {
+    // Insert solution
     public ArrayList<ArrayList<Integer>> perm(int[] num, int start) {
         ArrayList<ArrayList<Integer>> out = new ArrayList<ArrayList<Integer>>();;
         if (start >= num.length-1) {
@@ -43,6 +44,7 @@ public class Permutations {
         return out;
     }
     
+    // DFS solution
     public void permImp(ArrayList<ArrayList<Integer>> result, ArrayList<Integer> tmp, boolean[] used, int[] num) {
         if (tmp.size() == num.length) {
             result.add(new ArrayList<Integer>(tmp));
