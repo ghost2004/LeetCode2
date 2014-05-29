@@ -42,4 +42,29 @@ public class Permutations {
         
         return out;
     }
+    
+    public void permImp(ArrayList<ArrayList<Integer>> result, ArrayList<Integer> tmp, boolean[] used, int[] num) {
+        if (tmp.size() == num.length) {
+            result.add(new ArrayList<Integer>(tmp));
+            return;
+        }
+        for (int i = 0; i < num.length; i++) {
+            if (!used[i]) {
+                used[i] = true;
+                int end = tmp.size();
+                tmp.add(num[i]);
+                permImp(result, tmp, used, num);
+                used[i]  = false;
+                tmp.remove(end);
+            }
+        }
+    }
+    public ArrayList<ArrayList<Integer>> permute(int[] num) {
+        ArrayList<ArrayList<Integer>> out = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> tmp = new ArrayList<Integer>();
+        boolean used[] = new boolean [num.length];
+        Arrays.sort(num);
+        permImp(out, tmp, used, num);
+        return out;
+    }
 }
