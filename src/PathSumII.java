@@ -19,10 +19,32 @@ return
  */
 import java.util.*;
 public class PathSumII {
-    
+    ArrayList<ArrayList<Integer>> out;
+    public void pathSearch(ArrayList<Integer> path , TreeNode root, int sum) {
+        if (root.left == null && root.right == null) {
+            if (root.val == sum) {
+                ArrayList<Integer> t = new ArrayList<Integer>(path);
+                t.add(sum);
+                out.add(t);
+            }
+            return;    
+        }
+        int size = path.size();
+        path.add(root.val);
+        if (root.left != null) {
+            pathSearch(path, root.left, sum - root.val);
+        }
+        if (root.right != null) {
+            pathSearch(path, root.right, sum - root.val);
+        }
+        path.remove(size);
+    }
     public ArrayList<ArrayList<Integer>> pathSum(TreeNode root, int sum) {
-        ArrayList<ArrayList<Integer>> out = new ArrayList<ArrayList<Integer>>();
-        
+        out = new ArrayList<ArrayList<Integer>>();
+        if (root == null)
+            return out;
+        ArrayList<Integer> path = new ArrayList<Integer>();
+        pathSearch(path, root, sum);
         return out;
     }
 }
