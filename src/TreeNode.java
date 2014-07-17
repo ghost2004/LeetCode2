@@ -45,9 +45,10 @@ public class TreeNode {
             else
                 buf.append("#");
             buf.append(")");
+            */
             printNode(node.left, buf);
             printNode(node.right, buf);
-            */
+            
         }
     }
     
