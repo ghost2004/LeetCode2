@@ -38,12 +38,17 @@ public class FlattenBinaryTree {
         }
             
         TreeNode r = root.left;
+        while (r.right != null) {
+            r = r.right;
+        }
+        /*
         while (r.right != null || r.left!= null) {
             if (r.right != null)
                 r = r.right;
             else
                 r = r.left;
         }
+        */
             
         r.right = root.right;
         
