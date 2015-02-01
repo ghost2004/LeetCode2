@@ -11,8 +11,11 @@ public class AAGoogleMissingRange {
    }
    
    public void printRange (ArrayList<Range> in) {
-       if (in == null || in.size() == 0)
+       if (in == null || in.size() == 0) {
+           System.out.println("Empty");
            return;
+       }
+           
        
        Iterator<Range> it = in.iterator();
        
