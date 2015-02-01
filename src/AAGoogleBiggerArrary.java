@@ -29,8 +29,12 @@ public class AAGoogleBiggerArrary {
                 int idx = i+1;
                 int cnt = 0;
                 while (idx < array.length && rightMax[idx] > array[i]) {
-                    if (array[idx] > array[i])
-                        cnt++;
+                    if (array[idx] > array[i]) {
+                        cnt ++;
+                    } else if (array[idx] == array[i]) {
+                        cnt += out[idx];
+                        break;
+                    }
                     idx++;
                 }
                 out[i] = cnt;
@@ -48,13 +52,14 @@ public class AAGoogleBiggerArrary {
         int a3[] = {4, 1, 0, 2};
         int a4[] = {0};
         int a5[] = {1,2};
+        int a6[] = {1, 32,4,1,6,45,3,7,32,8,10,9};
 
         b.printArray(b.getBiggerArray(a1));
         b.printArray(b.getBiggerArray(a2));
         b.printArray(b.getBiggerArray(a3));
         b.printArray(b.getBiggerArray(a4));
         b.printArray(b.getBiggerArray(a5));
-        
+        b.printArray(b.getBiggerArray(a6));
     }
 
 }
